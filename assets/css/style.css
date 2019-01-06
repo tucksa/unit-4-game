@@ -1,0 +1,32 @@
+.speech {
+    line-height: 150%;
+    text-align: center;
+    margin-top: 75px;
+}
+body {
+    background-image: url("../images/stardust.png");
+}
+.break {
+    height: 200px;
+}
+.inst {
+    color: white;
+}
+.battle{
+    height: 300px;
+    background-color: antiquewhite;
+}
+footer{
+    height: 150px;
+}
+#attackbtn {
+    margin-top:140px;
+    margin-left:60px;
+}
+.updates {
+    background-color: antiquewhite;
+    height: 75px;
+}
+.msg-break {
+    margin-bottom:75px;
+}

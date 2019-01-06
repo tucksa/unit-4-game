@@ -1,0 +1,147 @@
+<!doctype html>
+<html>
+    <head>
+        <title> Star Wars </title>
+        <link rel= "stylesheet" type= "text/css" href= "assets/css/style.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <!--starwars pic navbar-->
+       <h1 class= "inst">Choose your player</h1>
+        <!--pick your character-->
+        <div class= "row">    
+            <div class="col-2 card" style="width: 18rem;">
+                <img src="assets/images/princessleia.jpg" class="card-img-top" alt="Princess Leia" style= "height:250px;">
+                <div class="card-body">
+                  <h5 class="card-title">Princess Leia</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#opponent" class="btn btn-primary">Choose opponent</a>
+                </div>
+            </div>
+            <div class="col-2 card" style="width: 18rem;">
+                <img src="assets/images/obi-wan-kenobi-star-wars.jpg" class="card-img-top" alt="Obi-wan Kenobi" style= "height:250px;">
+                <div class="card-body">
+                  <h5 class="card-title">Obi-Wan Kenobi</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#opponent" class="btn btn-primary">Choose opponent</a>
+                </div>
+            </div>
+            <div class="col-2 card" style="width: 18rem;">
+                <img src="assets/images/lukeskywalker.jpg" class="card-img-top" alt="Luke Skywalker" style= "height:250px;">
+                <div class="card-body">
+                  <h5 class="card-title">Luke Skywalker</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#opponent" class="btn btn-primary">Choose opponent</a>
+                </div>
+            </div>
+            <div class="col-2 card" style="width: 18rem;">
+                <img src="assets/images/chwebacca.jpg" class="card-img-top" alt="Chewbacca" style= "height:250px;">
+                <div class="card-body">
+                  <h5 class="card-title">Chewbacca</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#opponent" class="btn btn-primary">Choose opponent</a>
+                </div>
+            </div>
+        <!--yoda text box-->
+        <div class="col-4">
+            <div class="speech row alert alert-warning" role="alert">
+                Pick your player you must. <br/>
+                Wisely choose. <br/>
+                With experience power gain you will.
+            </div>
+             <!--yoda image-->
+             <div class= "row">
+                 <img src= "assets/images/yoda.jpg" alt="Yoda" style= "height:250px; width:450px;">
+             </div>
+        </div>
+        </div>
+
+        <div class= "break">
+
+        </div>
+
+        <!--pick your opponent-->
+        <h1 id= "opponent" class= "inst">Choose your Opponent</h1>
+        <div class= "row">    
+            <div class="col-2 card" style="width: 18rem;">
+                <img src="assets/images/bobaFett.jpg" class="card-img-top" alt="Boba Fett" style= "height:250px;">
+                <div class="card-body">
+                  <h5 class="card-title">Boba Fett</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#battleGround" class="oppinfo btn btn-primary">Battle</a>
+                </div>
+            </div>
+            <div class="col-2 card" style="width: 18rem;">
+                <img src="assets/images/emperorPalpatine.jpg" class="card-img-top" alt= "Emperor Palpatine" style= "height:250px;">
+                <div class="card-body">
+                  <h5 class="card-title">Emperor Palpatine</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#battleGround" class="oppinfo btn btn-primary">Battle</a>
+                </div>
+            </div>
+            <div class="col-2 card" style="width: 18rem;">
+                <img src="assets/images/darthVader.jpg" class="card-img-top" alt="Darth Vader" style= "height:250px;">
+                <div class="card-body">
+                  <h5 class="card-title">Darth Vader</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#battleGround" class="oppinfo btn btn-primary">Battle</a>
+                </div>
+            </div>
+            <div class="col-2 card" style="width: 18rem;">
+                <img src="assets/images/darthMaul.jpg" class="card-img-top" alt="Darth Maul" style= "height:250px;">
+                <div class="card-body">
+                  <h5 class="card-title">Darth Maul</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#battleGround" class="oppinfo btn btn-primary">Battle</a>
+                </div>
+            </div>
+        <!--yoda text box-->
+        <div class="col-4">
+            <div class="speech row alert alert-warning" role="alert">
+                Pick your opponent you must. <br/>
+                The force is strong with you. <br/>
+                Fight each you must. <br/>
+                Balance restore you must <br/>
+            </div>
+             <!--yoda image-->
+             <div class= "row">
+                 <img src= "assets/images/yoda.jpg" alt="Yoda" style= "height:250px; width:450px;">
+             </div>
+        </div>
+        
+        </div>
+
+        <div class= "break">
+
+        </div>
+
+
+        <!--Battle Ground-->
+        <div class= "msg-break row">
+            <div class= "col-4"></div>
+            <div class= "updates col-4"></div>
+            <div class= "col-4"></div>
+        </div>
+      
+         <div class= "row">
+             <div class= "col-1"></div>
+            <!--bad guy side-->
+            <div id= "badSide" class= "battle col-4">
+
+            </div>
+            <div class= "col-2">
+                <button id= "attackbtn">Attack</button>
+            </div>
+            <!--good guy side-->
+            <div id= "goodSide" class= "battle col-4">
+                
+            </div>
+            <div class= "col-1"></div>
+        </div>
+        <footer id= "battleGround"> </footer>
+
+    </body>
+</html> 
