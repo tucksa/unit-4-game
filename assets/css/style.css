@@ -14,7 +14,7 @@ body {
 }
 .battle{
     height: 300px;
-    background-color: antiquewhite;
+    background-color: white;
 }
 footer{
     height: 150px;
@@ -24,7 +24,7 @@ footer{
     margin-left:60px;
 }
 .updates {
-    background-color: antiquewhite;
+    background-color: white;
     height: 75px;
 }
 .msg-break {
