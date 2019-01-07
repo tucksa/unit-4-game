@@ -23,7 +23,7 @@ Character.prototype.increaseAttack = function () {
 Character.prototype.attack = function (Obj) {
     Obj.healthPoints -= this.attackPower;
     $(".updates").html("You attacked " +
-        Obj.name + "for " + this.attackPower + " damage points.");
+        Obj.name + " for " + this.attackPower + " damage points.");
     this.increaseAttack();
 };
 
