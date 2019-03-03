@@ -99,7 +99,8 @@ $("#bobaBtn").click(function () {
         $("#bobaCard").children().remove();
         $("#badSide").append(bobaFett.name);
         $("#badSide").append("<br>" + "HP: " + bobaFett.healthPoints);
-        $("#badpic").append("<img src='assets/images/bobaFett.jpg' style= 'height:250px;width:18rem;'>")
+        $("#badpic").append("<img src='assets/images/bobaFett.jpg' style= 'height:250px;width:18rem;'>");
+        $(".updates").empty();
 });
 $("#emperorBtn").click(function () {
         for (var j = 0; j < oppArray.length; j++) {
@@ -112,7 +113,8 @@ $("#emperorBtn").click(function () {
         $("#emperorCard").children().remove();
         $("#badSide").append(emperorP.name);
         $("#badSide").append("<br>" + "HP: " + emperorP.healthPoints);
-        $("#badpic").append("<img src='assets/images/emperorPalpatine.jpg' style= 'height:250px;width:18rem;'>")
+        $("#badpic").append("<img src='assets/images/emperorPalpatine.jpg' style= 'height:250px;width:18rem;'>");
+        $(".updates").empty();
 
 });
 $("#vaderBtn").click(function () {
@@ -126,7 +128,8 @@ $("#vaderBtn").click(function () {
         $("#vaderCard").children().remove();
         $("#badSide").append(darthVader.name);
         $("#badSide").append("<br>" + "HP: " + darthVader.healthPoints);
-        $("#badpic").append("<img src='assets/images/darthVader.jpg' style= 'height:250px;width:18rem;'>")
+        $("#badpic").append("<img src='assets/images/darthVader.jpg' style= 'height:250px;width:18rem;'>");
+        $(".updates").empty();
 
 });
 $("#maulBtn").click(function () {
@@ -140,7 +143,8 @@ $("#maulBtn").click(function () {
         $("#maulCard").children().remove();
         $("#badSide").append(darthMaul.name);
         $("#badSide").append("<br>" + "HP: " + darthMaul.healthPoints);
-        $("#badpic").append("<img src='assets/images/darthMaul.jpg' style= 'height:250px;width:18rem;'>")
+        $("#badpic").append("<img src='assets/images/darthMaul.jpg' style= 'height:250px;width:18rem;'>");
+        $(".updates").empty();
 });
 
 $("#attackbtn").click(function () {
@@ -165,7 +169,7 @@ $("#attackbtn").click(function () {
             $("#badSide").html("");
             defenderSelected = false;
             if (isWinner()) {
-                $(".updates").html("YOU WON!!!!!!! Balance has beed restored")
+                $(".updates").html("YOU WON!!!!!!! Balance has been restored")
             }
         }
     }
