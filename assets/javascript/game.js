@@ -34,10 +34,10 @@ function attack(player, opponent) {
 
 
 //bad guys
-    var bobaFett = new Character("Boba Fett", 200, 15);
-    var darthMaul = new Character("Darth Maul", 180, 12);
-    var emperorP = new Character("Emperor Palpatine", 140, 9);
-    var darthVader = new Character("Darth Vader", 120, 6);
+    var bobaFett = new Character("Boba Fett", 400, 15);
+    var darthMaul = new Character("Darth Maul", 340, 12);
+    var emperorP = new Character("Emperor Palpatine", 240, 9);
+    var darthVader = new Character("Darth Vader", 140, 6);
     oppArray.push(bobaFett, darthMaul, emperorP, darthVader);
 
 
