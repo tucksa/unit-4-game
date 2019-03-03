@@ -1,58 +1,45 @@
-var baseAttack = 0; // original attack strength
-var player; // holds the player Object
-var defender; // holds the current defender Object
-var charArray = []; // array that stores the game characters (Objects)
-var oppArray = []
-var playerSelected = false; // flag to mark if we picked a player yet
-var defenderSelected = false; // flag to mark if we picked a defender
+var player; 
+var defender; 
+var charArray = [];
+var oppArray = [];
+var playerSelected = false; 
+var defenderSelected = false; 
 
 
-function Character(name, hp, ap, counter, pic) {
+function Character(name, hp, ap) {
     this.name = name;
     this.healthPoints = hp;
     this.attackPower = ap;
-    this.counterAttackPower = counter;
+    this.increaseAttack = function () {
+        this.attackPower += this.attackPower;
+    };
 }
 
-//increasing attack power
-Character.prototype.increaseAttack = function () {
-    this.attackPower += baseAttack;
-};
-
-//removing opponent health points
-Character.prototype.attack = function (Obj) {
-    Obj.healthPoints -= this.attackPower;
+function attack(player, opponent) {
+    opponent.healthPoints -= player.attackPower;
+    player.healthPoints -= opponent.attackPower;
     $(".updates").html("You attacked " +
-        Obj.name + " for " + this.attackPower + " damage points.");
-    this.increaseAttack();
+        opponent.name + " for " + player.attackPower + " damage points. " + opponent.name + " attacked you for "+ opponent.attackPower+ ".");
+    player.increaseAttack();
+    opponent.increaseAttack();
 };
 
-//losing your own health after counter attack
-Character.prototype.counterAttack = function (Obj) {
-    Obj.healthPoints -= this.counterAttackPower;
-    $(".updates").append("<br>" + this.name + " attacked you for " + this.counterAttackPower + " damage points.");
-};
 
 //good guys
-    var princessLeia = new Character("Princess Leia", 200, 6, 6);
-    var obiWan = new Character("Obi-Wan Kenobi", 160, 9, 9);
-    var lukeSkywalker = new Character("Luke Skywalker", 140, 12, 12);
-    var chewy = new Character("Chewbacca", 120, 15, 15);
+    var princessLeia = new Character("Princess Leia", 260, 6);
+    var obiWan = new Character("Obi-Wan Kenobi", 240, 9);
+    var lukeSkywalker = new Character("Luke Skywalker", 200, 12);
+    var chewy = new Character("Chewbacca", 180, 15);
     charArray.push(princessLeia, obiWan, lukeSkywalker, chewy);
 
 
 //bad guys
-    var bobaFett = new Character("Boba Fett", 200, 15, 15);
-    var darthMaul = new Character("Darth Maul", 180, 12,12);
-    var emperorP = new Character("Emperor Palpatine", 140, 9, 9);
-    var darthVader = new Character("Darth Vader", 120, 6,6);
+    var bobaFett = new Character("Boba Fett", 200, 15);
+    var darthMaul = new Character("Darth Maul", 180, 12);
+    var emperorP = new Character("Emperor Palpatine", 140, 9);
+    var darthVader = new Character("Darth Vader", 120, 6);
     oppArray.push(bobaFett, darthMaul, emperorP, darthVader);
 
-
-
-function setBaseAttack(Obj) {
-    baseAttack = Obj.attackPower;
-}
 
 function isAlive(Obj) {
     if (Obj.healthPoints > 0) {
@@ -66,43 +53,42 @@ function isWinner() {
         return true;
     else return false;
 }
-//figure out how to move pic to battle ground when seleced
+
 $("#leiaBtn").click(function(){
     player = princessLeia
     playerSelected = true;
     $("#goodinfo").append(princessLeia); // appends the selected player to the div 
-    $("#goodinfo").append(player.name);
-    $("#goodinfo").append("<br>" + "HP: " + player.healthPoints);
+    $("#goodinfo").append(princessLeia.name);
+    $("#goodinfo").append("<br>" + "HP: " + princessLeia.healthPoints);
     $("#goodSide").append("<img src='assets/images/princessleia.jpg' style= 'height:250px;width:18rem;'>")
 });
 $("#obiBtn").click(function(){
     player = obiWan
     playerSelected = true;
     $("#goodinfo").append(obiWan); // appends the selected player to the div 
-    $("#goodinfo").append(player.name);
-    $("#goodinfo").append("<br>" + "HP: " + player.healthPoints);
+    $("#goodinfo").append(obiWan.name);
+    $("#goodinfo").append("<br>" + "HP: " + obiWan.healthPoints);
     $("#goodSide").append("<img src='assets/images/obi-wan-kenobi-star-wars.jpg' style= 'height:250px;width:18rem;'>")
 });
 $("#lukeBtn").click(function(){
     player = lukeSkywalker
     playerSelected = true;
     $("#goodinfo").append(lukeSkywalker); // appends the selected player to the div 
-    $("#goodinfo").append(player.name);
-    $("#goodinfo").append("<br>" + "HP: " + player.healthPoints);
+    $("#goodinfo").append(lukeSkywalker.name);
+    $("#goodinfo").append("<br>" + "HP: " + lukeSkywalker.healthPoints);
     $("#goodSide").append("<img src='assets/images/lukeskywalker.jpg' style= 'height:250px;width:18rem;'>")
 });
 $("#chewyBtn").click(function(){
     player = chewy
     playerSelected = true;
     $("#goodinfo").append(chewy); // appends the selected player to the div 
-    $("#goodinfo").append(player.name);
-    $("#goodinfo").append("<br>" + "HP: " + player.healthPoints);
+    $("#goodinfo").append(chewy.name);
+    $("#goodinfo").append("<br>" + "HP: " + chewy.healthPoints);
     $("#goodSide").append("<img src='assets/images/chwebacca.jpg' style= 'height:250px;width:18rem;'>")
 });
 
 
 $("#bobaBtn").click(function () {
-    // Stores the defender the user has clicked on in the defender variable and removes it from the oppArray
         for (var j = 0; j < oppArray.length; j++) {
             if (oppArray[j].name == "Boba Fett") {
                 defender = oppArray[j]; // sets defender
@@ -111,12 +97,11 @@ $("#bobaBtn").click(function () {
             }
         }
         $("#bobaCard").children().remove();
-        $("#badSide").append(defender.name);
-        $("#badSide").append("<br>" + "HP: " + defender.healthPoints);
+        $("#badSide").append(bobaFett.name);
+        $("#badSide").append("<br>" + "HP: " + bobaFett.healthPoints);
         $("#badpic").append("<img src='assets/images/bobaFett.jpg' style= 'height:250px;width:18rem;'>")
 });
 $("#emperorBtn").click(function () {
-    // Stores the defender the user has clicked on in the defender variable and removes it from the oppArray
         for (var j = 0; j < oppArray.length; j++) {
             if (oppArray[j].name == "Emperor Palpatine") {
                 defender = oppArray[j]; // sets defender
@@ -125,14 +110,12 @@ $("#emperorBtn").click(function () {
             }
         }
         $("#emperorCard").children().remove();
-        $("#badSide").append(this); // appends the selected defender to the div 
-        $("#badSide").append(defender.name);
-        $("#badSide").append("<br>" + "HP: " + defender.healthPoints);
+        $("#badSide").append(emperorP.name);
+        $("#badSide").append("<br>" + "HP: " + emperorP.healthPoints);
         $("#badpic").append("<img src='assets/images/emperorPalpatine.jpg' style= 'height:250px;width:18rem;'>")
 
 });
 $("#vaderBtn").click(function () {
-    // Stores the defender the user has clicked on in the defender variable and removes it from the oppArray
         for (var j = 0; j < oppArray.length; j++) {
             if (oppArray[j].name == "Darth Vader") {
                 defender = oppArray[j]; // sets defender
@@ -141,13 +124,12 @@ $("#vaderBtn").click(function () {
             }
         }
         $("#vaderCard").children().remove();
-        $("#badSide").append(defender.name);
-        $("#badSide").append("<br>" + "HP: " + defender.healthPoints);
+        $("#badSide").append(darthVader.name);
+        $("#badSide").append("<br>" + "HP: " + darthVader.healthPoints);
         $("#badpic").append("<img src='assets/images/darthVader.jpg' style= 'height:250px;width:18rem;'>")
 
 });
 $("#maulBtn").click(function () {
-    // Stores the defender the user has clicked on in the defender variable and removes it from the oppArray
         for (var j = 0; j < oppArray.length; j++) {
             if (oppArray[j].name == "Darth Maul") {
                 defender = oppArray[j]; // sets defender
@@ -156,17 +138,16 @@ $("#maulBtn").click(function () {
             }
         }
         $("#maulCard").children().remove();
-        $("#badSide").append(defender.name);
-        $("#badSide").append("<br>" + "HP: " + defender.healthPoints);
+        $("#badSide").append(darthMaul.name);
+        $("#badSide").append("<br>" + "HP: " + darthMaul.healthPoints);
         $("#badpic").append("<img src='assets/images/darthMaul.jpg' style= 'height:250px;width:18rem;'>")
 });
 
 $("#attackbtn").click(function () {
     if (playerSelected && defenderSelected) {
-            baseAttack+=1;
+        
         if (isAlive(player) && isAlive(defender)) {
-            player.attack(defender);
-            defender.counterAttack(player);
+            attack(player, defender);
             $("#goodinfo").html("HP: " + player.healthPoints);
             $("#badSide").html("HP: " + defender.healthPoints);
             if (!isAlive(defender)) {
@@ -189,7 +170,3 @@ $("#attackbtn").click(function () {
         }
     }
 });
-
-
-
-
