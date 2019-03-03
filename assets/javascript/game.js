@@ -170,7 +170,3 @@ $("#attackbtn").click(function () {
         }
     }
 });
-
-
-
-
